@@ -1,0 +1,199 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - What can you do ?
+    - How can you help me ?
+    - What is your role?
+    - How are you useful?
+    - What is your job?
+    - what are you made for?
+    - What can you do for me?
+    - How can you be useful for me?
+    - Can you help me?
+    - Who are you?
+    - What is your name?
+    
+- intent: get_job
+  examples: |
+    - I want a job
+    - I am looking for a job my number is [8889990001](num)
+    - My name is [John](name), I am looking for a job.
+    - Need job 
+    - looking for a job, help me
+    - Can you help me get a job?
+    - unemployed, need job.
+    - I am laid off, searching for a job.
+    - Need employement
+    - Looking for work
+    - I am open for work
+    - I am in need of work, please email me at [john@gmail.com](mail)
+    - Call me on [7897897458](num) for any job suggestions.
+    - Need job suggestions
+    - I want to apply for a job.
+    - Do you accept job applications?
+    - Please register my details for a job.
+    - Candidate looking for a employement.
+    - how to get a job?
+    - Where can I find work.
+    
+
+- intent: name_entry
+  examples: |
+    - My name is [Peter](name)
+    - I am [Pruthvi Bangarshettar](name)
+    - [Raju Ram](name) is my name
+    - My name is [Amit](name)
+    - [John Doe](name)
+    - I am [Ravi](name)
+    - It is [Anantha Padmanabhan](name)
+    - Call me [Ranganathan Perusalmyswami](name)
+    - My good name is [John Wick](name)
+    - [Purushothaman Venkatarama](name) is my name
+    - you can call me [Mohammed Hafiz](name)
+    - My full name is [Mujhahiduddin Ahmed](name)
+    
+ 
+    
+    
+
+- intent: num_entry
+  examples: |
+    - My number is [7897897894](num)
+    - call me at [995789698](num)
+    - my phone number is [7895869855](num)
+    - [9879875868] is my cell number
+    - it is [9874856874](num)
+    - [8978978754](num)
+
+
+- intent: mail_entry
+  examples: |
+    - My email is [john@gmail.com](mail)
+    - mail me at [raj@gmail.com](mail)
+    - my mail is [matt@gmail.com](mail)
+    - [peter@gmail.com](mail) is my email
+    - mail is [rob@gmail.com](mail)
+    - [max@gmail.com](mail)
+
+- intent: faq/rasa
+  examples: |
+    - Where can I find info about rasa?
+    - I want to know about RASA.
+    - Looking for RASA information
+    - I want to learn RASA.
+    - How to install Rasa?
+    - How to run rasa?
+    - Do you know about rasa?
+    - Documentation for RASA.
+    - Need docs related to rasa.
+    - Help me with rasa.
+    - provide me some knowledge on rasa
+    - Can I get more info regarding rasa?
+    - I need help with Rasa.
+    - I would like to know more about Rasa.
+    - I cannot find Rasa docs
+    - info about RASA
+    - Docs regarding rasa
+
+- intent: faq/joke
+  examples: |
+    - Tell me a joke
+    - make me laugh
+    - Cheer me up
+    - make my smile
+    - Can you tell a joke?
+    - Shoot a funny joke.
+    - Are you funny?
+    - Can you tell a good joke?
+    - I am bored, tell me a joke.
+    - Make me LOL
+    - Impress me with a joke.
