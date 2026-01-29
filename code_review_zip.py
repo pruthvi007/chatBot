@@ -87,7 +87,7 @@ def decode_text(data: bytes) -> Optional[str]:
 
 def iter_zip_text_files(
     zip_path: str, max_file_chars: int
-) -> Iterable[Tuple[str, Optional[str]]]:
+) -> Iterable[Tuple[str, Optional[str], Optional[str]]]:
     with zipfile.ZipFile(zip_path) as zip_file:
         for info in zip_file.infolist():
             if info.is_dir():
@@ -103,19 +103,19 @@ def iter_zip_text_files(
                 data = file_handle.read()
 
             if is_probably_binary(data):
-                yield file_path, None
+                yield file_path, None, "Skipped: binary or unsupported encoding."
                 continue
 
             text = decode_text(data)
             if text is None:
-                yield file_path, None
+                yield file_path, None, "Skipped: binary or unsupported encoding."
                 continue
 
             if max_file_chars > 0 and len(text) > max_file_chars:
-                yield file_path, ""
+                yield file_path, None, "Skipped: file exceeds max-file-chars."
                 continue
 
-            yield file_path, text
+            yield file_path, text, None
 
 
 def build_prompt(file_path: str, content: str) -> str:
@@ -179,14 +179,11 @@ def main() -> int:
     client = OpenAI()
     results: List[Tuple[str, str]] = []
 
-    for file_path, content in iter_zip_text_files(
+    for file_path, content, skip_reason in iter_zip_text_files(
         args.zip_path, args.max_file_chars
     ):
-        if content is None:
-            results.append((file_path, "Skipped: binary or unsupported encoding."))
-            continue
-        if content == "":
-            results.append((file_path, "Skipped: file exceeds max-file-chars."))
+        if skip_reason:
+            results.append((file_path, skip_reason))
             continue
 
         print(f"Reviewing {file_path}...", file=sys.stderr)
